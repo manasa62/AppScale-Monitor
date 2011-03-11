@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>AppScale Monitor</title>
+    <link type="text/css" href="/static/lib/css/sunny/jquery-ui-1.8.6.custom.css" rel="stylesheet" />  
+    <script type="text/javascript" src="/static/lib/js/jquery-1.4.2.min.js"></script> 
+    <script type="text/javascript" src="/static/lib/js/jquery-ui-1.8.6.custom.min.js"></script> 
+    <script type="text/javascript" src="/static/js/appscale.js"></script> 
+    <link href="static/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body id="store">
+    <div id="banner" class="ui-widget ui-widget-header ui-helper-clearfix ui-state-default ui-corner-all">
+      <img src="static/images/logo.jpeg" length="50" width="50" />
+      AppScale Monitor
+    </div>
+    <div id="navigation">
+        <ul>
+          <li>
+            <a href="/home">Home</a>
+          </li>
+          <li>
+            <a href="/addkeypair">Add a Keypair</a>
+          </li>
+          <li>
+            <a href="/describe_instances">View all Running Instances</a>
+          </li>
+          <li>
+            <a href="/run_instances">Run an Instance</a>
+          </li>
+          <li>
+            <a class="selected last"  href="/terminate_instances">Terminate an Instance</a>
+          </li>
+		   <li>
+            <a href="/upload_app">Upload App</a>
+          </li>
+		  <li>
+            <a href="/remove_app">Remove App</a>
+          </li>
+		   <li>
+            <a href="/reset_pwd">Reset Password</a>
+          </li>
+        </ul>
+    </div>
+    <br/>
+    <br/>
+    <div id="columns">
+      <div id="main">
+        <div class="ui-widget ui-widget-header ui-helper-clearfix ui-state-default ui-corner-all">
+        <h2>Terminating Appscale Instances</h2>
+        </div>
+        <br/>
+        <div class="ui-widget ui-widget-content ui-helper-clearfix ui-state-default ui-corner-all">
+        {% if as_status %}
+        <form action="/terminate_instances" method="post">
+       
+         
+                
+                	 {% for entry in as_status %}
+                  {{ entry }}<br/>
+				 
+                {% endfor %}
+                 
+                
+        </form>
+        {% else %}
+          <p>There was an error terminating instances. Please try again.</p>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+<div class="dialog" id="notification-dialog"> 
+</div> 
+  <script type="text/javascript"> init_appscale(); 
+        
+</script>
+ 
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>AppScale Monitor</title>
+  <link type="text/css" href="/static/lib/css/sunny/jquery-ui-1.8.6.custom.css" rel="stylesheet" />  
+    <script type="text/javascript" src="/static/lib/js/jquery-1.4.2.min.js"></script> 
+    <script type="text/javascript" src="/static/lib/js/jquery-ui-1.8.6.custom.min.js"></script>
+    <script type="text/javascript" src="/static/js/appscale.js"></script> 
+
+    <link href="static/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body id="store">
+    <div id="banner" class="ui-widget ui-widget-header ui-helper-clearfix ui-state-default ui-corner-all">
+      <img src="static/images/logo.jpeg" length="50" width="50" />
+      AppScale Monitor
+    </div>
+
+    <div id="navigation">
+        <ul>
+          <li>
+            <a href="/home">Home</a>
+          </li>
+          <li>
+            <a class="selected" href="/addkeypair">Add a Keypair</a>
+          </li>
+          <li>
+            <a href="/describe_instances">View all Running Instances</a>
+          </li>
+          <li>
+            <a href="/run_instances">Run an Instance</a>
+          </li>
+          <li>
+            <a class="last" ref="/terminate_instances">Terminate an Instance</a>
+          </li>
+		   <li> 
+            <a href="/upload_app">Upload App</a>
+          </li>
+		  <li>
+            <a href="/remove_app">Remove App</a>
+          </li>
+		  <li>
+            <a href="/reset_pwd">Reset Password</a>
+          </li>
+        </ul>
+    </div>
+    <br/>
+    <br/>
+
+    <div id="columns">
+      <div id="main">
+         <div class="ui-widget ui-widget-header ui-helper-clearfix ui-state-default ui-corner-all">
+        <h2>Add KeyPair</h2>
+        </div>
+    <br/>
+        <div class="ui-widget ui-widget-content ui-helper-clearfix ui-state-default ui-corner-all" id="addform">
+        	 <form id="adding_key_pair" action="/addkeypairpost" method="post">
+    <p> Enter the IP of the head node of the Appscale environment:</p>
+        	<label>IP Address:</label>
+            <br />
+            <input id="ip" name="ip" size="30" type="text" />	
+	<p> Enter the password for the appscale instances:</p>
+        	<label>Password:</label>
+            <br />
+            <input type="password" id="pswd" name="pswd" size="30" type="text" />
+            <a id="password_button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit" role="button" href="javascript:post_add_key()">Add Key Pair</a>
+	 </form>
+ 	
+	</div>
+	
+	<div class="ui-widget ui-widget-content ui-helper-clearfix ui-state-default ui-corner-all">
+  		
+		</div>
+        </div>
+      </div>
+      </div>
+    </div>
+	 <div class="ui-widget ui-widget-content ui-helper-clearfix ui-state-default ui-corner-all" id="new_data"> 
+  </div> 
+   <div class="dialog" id="notification-dialog"> 
+  </div> 
+  <script type="text/javascript"> init_appscale(); </script>
+ 
+  </body>
+</html>

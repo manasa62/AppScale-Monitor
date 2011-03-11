@@ -1,0 +1,97 @@
+ <html>
+  <head>
+  	<title>AppScale Monitor</title>
+    <link type="text/css" href="/static/lib/css/sunny/jquery-ui-1.8.6.custom.css" rel="stylesheet" />  
+    <script type="text/javascript" src="/static/lib/js/jquery-1.4.2.min.js"></script> 
+    <script type="text/javascript" src="/static/lib/js/jquery-ui-1.8.6.custom.min.js"></script> 
+    <script type="text/javascript" src="/static/js/appscale.js"></script> 
+    <link href="static/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body id="store">
+    <div id="banner" class="ui-widget ui-widget-header ui-helper-clearfix ui-state-default ui-corner-all">
+      <img src="static/images/logo.jpeg" length="50" width="50" />
+      AppScale Monitor
+    </div>
+    <div id="navigation">
+        <ul>
+          <li>
+            <a href="/home">Home</a>
+          </li>
+          <li>
+            <a href="/addkeypair">Add a Keypair</a>
+          </li>
+          <li>
+            <a href="/describe_instances">View all Running Instances</a>
+          </li>
+          <li>
+            <a class="selected" href="/run_instances">Run an Instance</a>
+          </li>
+          <li>
+            <a class="last" href="/terminate_instances">Terminate an Instance</a>
+          </li>
+		   <li>
+            <a href="/upload_app">Upload App</a>
+          </li>
+		  <li>
+            <a href="/remove_app">Remove App</a>
+          </li>
+		   <li>
+            <a href="/reset_pwd">Reset Password</a>
+          </li>
+        </ul>
+    </div>
+    <br/>
+    <br/>
+    <div id="columns">
+      <div id="main">
+         <div class="ui-widget ui-widget-header ui-helper-clearfix ui-state-default ui-corner-all">
+        <h2>Starting Appscale instances</h2>
+        </div>
+    <br/>
+        <div class="ui-widget ui-widget-content ui-helper-clearfix ui-state-default ui-corner-all" id="addform">
+        	 <form id="run_instance" action="/run_instances_post" method="post">
+    	
+			<p>AppScale instance is linked to an e-mail address giving it administrator privileges.</p>
+        	<label>Enter your desired administrator e-mail address:</label>
+            <br />
+            <input id="email" name="email" size="30" type="text" />
+			<br/><br/>
+			<p>Enter your new administrator password. The password must be at least six characters long and can include non-alphanumeric characters.</p>
+			<label>Password:</label>
+            <br />
+            <input type="password" id="pswd" name="pswd" size="30" type="text" />
+			
+            <a id="password_button" class="ui-button ui-state-default ui-widget ui-corner-all ui-button-text-only" type="submit" role="button" href="javascript:post_run_instance()">Submit</a>
+	 </form>
+ 	
+	</div>
+	{% if dummy %}
+			
+	{% else %}
+	<div class="ui-widget ui-widget-content ui-helper-clearfix ui-state-default ui-corner-all">
+  {% if as_status %}
+        
+        	
+    		<p>  
+				{% for entry in as_status %}
+                  {{ entry }} <br>
+				 {% endfor %}
+			</p>
+        
+      
+        {% endif %}
+		{% endif %}
+		</div>
+        </div>
+      </div>
+      </div>
+    </div>
+	 <div class="ui-widget ui-widget-content ui-helper-clearfix ui-state-default ui-corner-all" id="new_data"> 
+  </div> 
+   <div class="dialog" id="notification-dialog"> 
+  </div> 
+  <script type="text/javascript"> init_appscale(); </script>
+ 
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <title>AppScale Monitor</title>
+    <link type="text/css" href="/static/lib/css/sunny/jquery-ui-1.8.6.custom.css" rel="stylesheet" />  
+    <script type="text/javascript" src="/static/lib/js/jquery-1.4.2.min.js"></script> 
+    <script type="text/javascript" src="/static/lib/js/jquery-ui-1.8.6.custom.min.js"></script> 
+    <script type="text/javascript" src="/static/js/appscale.js"></script> 
+    <link href="static/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body id="store">
+    <div id="banner" class="ui-widget ui-widget-header ui-helper-clearfix ui-state-default ui-corner-all">
+    	
+      <img src="static/images/logo.jpeg" length="50" width="50" />
+      AppScale Monitor
+    </div>
+    <div id="navigation">
+        <ul>
+          <li>
+            <a href="/home">Home</a>
+          </li>
+          <li>
+            <a href="/addkeypair">Add a Keypair</a>
+          </li>
+          <li>
+            <a class="selected" href="/describe_instances">View all Running Instances</a>
+          </li>
+          <li>
+            <a href="/run_instances">Run an Instance</a>
+          </li>
+          <li>
+            <a class="last" href="/terminate_instances">Terminate an Instance</a>
+          </li>
+		  <li>
+            <a href="/upload_app">Upload App</a>
+          </li>
+		  <li>
+            <a href="/remove_app">Remove App</a>
+          </li>
+		   <li>
+            <a href="/reset_pwd">Reset Password</a>
+          </li>
+        </ul>
+    </div>
+    <br/>
+    <br/>
+    <div id="columns">
+      <div id="main">
+        <div class="ui-widget ui-widget-header ui-helper-clearfix ui-state-default ui-corner-all">
+        <h2>Running Instances</h2>
+        </div>
+        <br/>
+        <div class="ui-widget ui-widget-content ui-helper-clearfix ui-state-default ui-corner-all">
+        {% if empty_status %}
+			<p>Please go the home page and enter a valid IP for the head node of the system and a password!</p>
+		{% else %}
+        {% if as_status %}
+        <form id="describe_instances" action="/describe_instances" method="post">
+        <p>The following instances are running on the Server Specified:</p>
+          <table border="1">
+            <tr>
+              <td>CPU Usage</td>
+              <td>Memory Usage</td>
+              <td>Hard Disk Usage</td>
+              <td>Functions</td>
+              <td>IP</td>
+			  <td>Status</td>
+              <td>Apps Running</td>
+            </tr>
+          
+              
+                <tr>
+                	 {% for entry in as_status %}
+                  <td>{{ entry }}</td>
+					 {% ifequal forloop.counter 7 %}
+					 </tr>
+					 {% endifequal %}
+					 {% ifequal forloop.counter 14 %}	
+					 </tr>
+					 {% endifequal %}
+					 {% ifequal forloop.counter 21 %}	
+					 </tr>
+					 {% endifequal %}
+					 {% ifequal forloop.counter 21 %}	
+					 </tr>
+					{% endifequal %}
+					{% endfor %}
+               
+				 
+             
+                     </table>
+        </form>
+        {% else %}
+          <p>No instances are currently running.</p>
+        {% endif %}
+		{% endif %}
+        </div>
+      </div>
+    </div>
+<div class="dialog" id="notification-dialog"> 
+</div> 
+  <script type="text/javascript"> init_appscale(); 
+        
+</script>
+ 
+</body>
+
+</html>

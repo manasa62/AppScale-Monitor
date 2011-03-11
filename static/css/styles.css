@@ -1,0 +1,127 @@
+#banner {
+  background: #FFFFFF;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px transparent;
+  border-top: 2px transparent;
+  border-left: 2px transparent;
+  border-right: 2px transparent;
+  font: normal bold 30px/40px "Ariel", serif;
+  width: 890px;
+  color: #000066 ;
+  text-align: left;
+}
+#banner img {
+  float: left;
+}
+
+#store {
+  width: 890px;
+    
+}
+
+/* Navigation
+   -------------------------------- */
+
+#navigation {
+  width: 890px;
+  height: 82px;
+  float: right;
+  font-size: 40px;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-center: 2px solid;
+ } 
+
+#navigation .left {
+  float: left;
+  width: 3px;
+  height: 41px;
+  background: url('/static/images/navigation_l.png') no-repeat left top;
+}
+
+#navigation .top {
+  border-top: 2px solid;
+  color: #000066;
+}
+
+
+#ie6 #navigation .left {
+  background: transparent none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/images/navigation_l.png', sizingMethod='scale');
+  zoom: 1;
+}
+
+#navigation .right {
+  float: right;
+  width: 3px;
+  height: 41px;
+  background: url('/static/images/navigation.png') no-repeat right top;
+  
+}
+
+#navigation ul,
+#navigation ul li {
+  font-weight: bold;
+  float: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 38px;
+  
+  
+
+}
+
+#navigation ul {
+  height: 41px;
+ /* background: url('/static/images/navigation.png') repeat-x 0 -41px;*/
+  border-bottom: 1px solid;
+}
+
+#navigation ul li a {
+  float: left;
+  display: block;
+  height: 41px;
+  padding: 1 10px;
+  color: #000066;
+  text-decoration: none;
+  background: url('/static/images/navigation_s.png') no-repeat right top;
+}
+
+#navigation ul li a.selected {
+  color: #A52A2A;
+}
+
+#navigation ul li a.last{
+  background-image: none;
+}
+
+#navigation ul li a:hover {
+  color: #A52A2A;
+}
+
+.ui-state-default
+{
+    background: #FFFFFF;
+    color: #000000;
+    border-bottom: 2px transparent;
+  	border-top: 2px transparent;
+  	border-left: 2px transparent;
+  	border-right: 2px transparent;
+}
+
+#password_button
+{
+    background:#CCCCFF;
+    color:#000000;
+	border-bottom: 2px solid;
+  	border-top: 2px solid;
+  	border-left: 2px solid;
+  	border-right: 2px solid;
+}
+
+
